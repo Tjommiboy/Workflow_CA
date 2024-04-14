@@ -22,3 +22,15 @@ jobs:
 
       - name: Run Tests
         run: npm run test-unit
+
+ run-e2e-tests:
+    name: Run E2E Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout under $GITHUB_WORKSPACE
+        uses: actions/checkout@main
+
+      - name: run cypress tests with electron
+        uses: cypress-io/github-action@v4
+        with:
+          browser: electron
